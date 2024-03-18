@@ -11,6 +11,7 @@ export interface FieldDefinition {
   type: string;
   label?: string;
   uuid: string;
+  disabled?: boolean;
   placeholder?: string;
   showHeading: boolean;
   validation?: {
@@ -58,6 +59,24 @@ export interface RegistrationConfig {
         month: number;
       };
     };
+    registrationDate: {
+      personAttributeUuid: string;
+    };
+    birthRank: {
+      personAttributeUuid: string;
+    };
+    birthDistrict: {
+      personAttributeUuid: string;
+    };
+    birthUpazilla: {
+      personAttributeUuid: string;
+    };
+    brithDistrict: {
+      personAttributeUuid: string;
+    };
+    birthupazilla: {
+      personAttributeUuid: string;
+    };
     phone: {
       personAttributeUuid: string;
     };
@@ -80,20 +99,30 @@ export const builtInSections: Array<SectionDefinition> = [
   {
     id: 'demographics',
     name: 'Basic Info',
-    fields: ['name', 'gender', 'dob', 'id'],
+    fields: ['name', 'dob', 'birthOtherInfo', 'gender', 'id'],
   },
-  { id: 'contact', name: 'Contact Details', fields: ['address', 'phone'] },
+  { id: 'presentAddress', name: 'Present Address', fields: ['address'] },
+  { id: 'otherInfo', name: 'Other Information', fields: ['otherInfo'] },
   { id: 'death', name: 'Death Info', fields: [] },
   { id: 'relationships', name: 'Relationships', fields: [] },
 ];
 
 // These fields are handled specially in field.component.tsx
-export const builtInFields = ['name', 'gender', 'dob', 'id', 'address', 'phone'] as const;
+export const builtInFields = [
+  'name',
+  'gender',
+  'dob',
+  'id',
+  'address',
+  'phone',
+  'birthOtherInfo',
+  'otherInfo',
+] as const;
 
 export const esmPatientRegistrationSchema = {
   sections: {
     _type: Type.Array,
-    _default: ['demographics', 'contact', 'relationships'],
+    _default: ['demographics', 'presentAddress', 'otherInfo', 'relationships'],
     _description: `An array of strings which are the keys from 'sectionDefinitions' or any of the following built-in sections: '${builtInSections
       .map((s) => s.id)
       .join("', '")}'.`,
@@ -304,6 +333,34 @@ export const esmPatientRegistrationSchema = {
           _description: 'The custom month to use on the estimated date of birth i.e 0 = Jan & 11 = Dec',
           _default: 0,
         },
+      },
+    },
+    birthRank: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '02bb6557-9383-4915-8674-42f7ca53e9ab',
+        _description: 'Birth Rank Field Requried',
+      },
+    },
+    registrationDate: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '599ecc95-8c28-4dcd-84aa-7589e69c4f42',
+        _description: 'Registration Date Field Requried',
+      },
+    },
+    birthDistrict: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: 'eae8da64-94f4-4ff0-9b1e-16f1cbf04ecc',
+        _description: 'Birth District Field Requried',
+      },
+    },
+    birthUpazilla: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '7846e26e-3eee-46d2-af66-0711f06526f3',
+        _description: 'Birth Upazilla Field Requried',
       },
     },
     phone: {

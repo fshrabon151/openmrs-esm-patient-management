@@ -23,6 +23,7 @@ export function PersonAttributeField({ fieldDefinition }: PersonAttributeFieldPr
       case 'java.lang.String':
         return (
           <TextPersonAttributeField
+            disabled={fieldDefinition.disabled}
             personAttributeType={personAttributeType}
             validationRegex={fieldDefinition.validation?.matches ?? ''}
             label={fieldDefinition.label}
