@@ -114,6 +114,7 @@ export function useAddressHierarchy(searchString: string, separator: string) {
     searchString
       ? `/module/addresshierarchy/ajax/getPossibleFullAddresses.form?separator=${separator}&searchString=${searchString}`
       : null,
+      //address api
     openmrsFetch,
   );
 

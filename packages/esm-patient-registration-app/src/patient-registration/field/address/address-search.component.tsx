@@ -16,6 +16,8 @@ const AddressSearchComponent: React.FC<AddressSearchComponentProps> = ({ address
   const wrapper = useRef(null);
   const [searchString, setSearchString] = useState<string>('');
   const { addresses, isLoading, error } = useAddressHierarchy(searchString, separator);
+  //geting all address from backend
+
   const addressOptions: Array<string> = useMemo(() => {
     const options: Set<string> = new Set();
     addresses.forEach((address) => {
