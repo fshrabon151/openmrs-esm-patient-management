@@ -93,12 +93,11 @@ export function CodedPersonAttributeField({
         <Layer>
           <Field name={fieldName}>
             {({ field, form: { touched, errors }, meta }) => {
-              console.log(field.value,'lifeeeeeeeeeeeeee')
+              console.log(field.value, 'lifeeeeeeeeeeeeee');
               return (
                 <>
                   <Select
-
-defaultValue="04eb0dfe-e4f7-4d61-ad71-7b397752f12c"
+                    defaultValue="04eb0dfe-e4f7-4d61-ad71-7b397752f12c"
                     id={id}
                     name={`person-attribute-${personAttributeType.uuid}`}
                     labelText={label ?? personAttributeType?.display}
