@@ -44,8 +44,9 @@ export function OtherInfo() {
           fieldDefinition={{
             id: 'mobileNoOwner',
             type: 'person attribute',
-            uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+            uuid: config.fieldConfigurations.mobileNoOwner.personAttributeUuid,
             showHeading: false,
+            answerConceptSetUuid: '5be5ff99-f938-4577-a477-821bca28222b',
             validation: {
               required: true,
             },
@@ -75,8 +76,9 @@ export function OtherInfo() {
         fieldDefinition={{
           id: 'financialStatus',
           type: 'person attribute',
-          uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+          uuid: config.fieldConfigurations.finacialStatus.personAttributeUuid,
           showHeading: false,
+          answerConceptSetUuid: 'eb261aa6-e59a-44bc-bb0f-3a52edcfde93',
           validation: {
             required: true,
           },
@@ -87,8 +89,9 @@ export function OtherInfo() {
         fieldDefinition={{
           id: 'registrationPoint',
           type: 'person attribute',
-          uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+          uuid: config.fieldConfigurations.registrationPoint.personAttributeUuid,
           showHeading: false,
+          answerConceptSetUuid: '9ba85b27-57e5-410d-81d7-c18653f5392c',
           validation: {
             required: true,
           },
@@ -99,8 +102,9 @@ export function OtherInfo() {
         fieldDefinition={{
           id: 'maritalStatus',
           type: 'person attribute',
-          uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+          uuid: config.fieldConfigurations.maritalStatus.personAttributeUuid,
           showHeading: false,
+          answerConceptSetUuid: '652e876c-5ee3-499d-8fff-245049220c42',
           label: 'Marital Status',
         }}
       />
@@ -117,7 +121,7 @@ export function OtherInfo() {
         fieldDefinition={{
           id: 'occupation',
           type: 'person attribute',
-          uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+          uuid: config.fieldConfigurations.occupation.personAttributeUuid,
           showHeading: false,
           label: 'Occupation',
         }}
@@ -126,7 +130,8 @@ export function OtherInfo() {
         fieldDefinition={{
           id: 'idType',
           type: 'person attribute',
-          uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+          uuid: config.fieldConfigurations.idType.personAttributeUuid,
+          answerConceptSetUuid: '6ba4afe6-da39-4fcd-a250-a4d61955177c',
           showHeading: false,
           label: 'Id Type',
         }}
@@ -135,7 +140,7 @@ export function OtherInfo() {
         fieldDefinition={{
           id: 'idNumber',
           type: 'person attribute',
-          uuid: config.fieldConfigurations.birthRank.personAttributeUuid,
+          uuid: config.fieldConfigurations.idNumber.personAttributeUuid,
           showHeading: false,
           label: 'Id Number',
         }}

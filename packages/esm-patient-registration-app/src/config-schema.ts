@@ -62,7 +62,25 @@ export interface RegistrationConfig {
     registrationDate: {
       personAttributeUuid: string;
     };
+    mobileNoOwner: {
+      personAttributeUuid: string;
+    };
+    finacialStatus: {
+      personAttributeUuid: string;
+    };
+    occupation: {
+      personAttributeUuid: string;
+    };
+    maritalStatus: {
+      personAttributeUuid: string;
+    };
+    registrationPoint: {
+      personAttributeUuid: string;
+    };
     birthRank: {
+      personAttributeUuid: string;
+    };
+    idType: {
       personAttributeUuid: string;
     };
     birthDistrict: {
@@ -72,6 +90,9 @@ export interface RegistrationConfig {
       personAttributeUuid: string;
     };
     brithDistrict: {
+      personAttributeUuid: string;
+    };
+    idNumber: {
       personAttributeUuid: string;
     };
     birthupazilla: {
@@ -347,6 +368,55 @@ export const esmPatientRegistrationSchema = {
         _type: Type.UUID,
         _default: '599ecc95-8c28-4dcd-84aa-7589e69c4f42',
         _description: 'Registration Date Field Requried',
+      },
+    },
+    finacialStatus: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: 'd04a3bb4-8981-46e5-a421-40ce4d2f1362',
+        _description: 'Finacial Status Date Field Requried',
+      },
+    },
+    registrationPoint: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '3eea0afc-84d4-473d-b1bc-c913ff960301',
+        _description: 'Finacial Status Date Field Requried',
+      },
+    },
+    mobileNoOwner: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: 'fcb2bcac-78a0-4cef-be7c-d51fa90d62e5',
+        _description: 'Finacial Status Date Field Requried',
+      },
+    },
+    maritalStatus: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '78589252-6070-4814-bb0f-242b63f87924',
+        _description: 'Marital Status Date Field Requried',
+      },
+    },
+    occupation: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: 'c492499b-d2e9-499d-940d-c73cedcfa2ce',
+        _description: 'Occupation Date Field Requried',
+      },
+    },
+    idType: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '2ccca6bd-ceb6-47bb-8fcc-e67e11481ee6',
+        _description: 'ID Type Date Field Requried',
+      },
+    },
+    idNumber: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '60471db2-ce91-4fc6-9714-5809f02797cc',
+        _description: 'ID Number Date Field Requried',
       },
     },
     birthDistrict: {
