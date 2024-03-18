@@ -32,12 +32,12 @@ export const AddressComponent: React.FC = () => {
 
     const addressLabel = (value: string) => {
       //displayText!=="Province"?displayText:"Division/Province",
-      if(value==="Province"){
-        return "Division/Province";
-      }else if(value==="Village"){
-        return "Village/Ward";
-      }else if(value==="impl.commune"){
-        return "AddressAddress (Rd#/H#/Para/ Moholla)"
+      if (value === 'Province') {
+        return 'Division/Province';
+      } else if (value === 'Village') {
+        return 'Village/Ward';
+      } else if (value === 'impl.commune') {
+        return 'AddressAddress (Rd#/H#/Para/ Moholla)';
       }
       return value;
     };
@@ -51,8 +51,6 @@ export const AddressComponent: React.FC = () => {
       };
     });
   }, [addressTemplate]);
-
- 
 
   const { t } = useTranslation();
   const config = useConfig();

@@ -63,7 +63,7 @@ export interface RegistrationConfig {
       personAttributeUuid: string;
     };
     mobileNoOwner: {
-      personAttributeUuid: string;
+      personAttributeUuid: any;
     };
     finacialStatus: {
       personAttributeUuid: string;

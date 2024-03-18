@@ -43,6 +43,7 @@ export function TextPersonAttributeField({
     <div className={classNames(styles.customField, styles.halfWidthInDesktopView)}>
       <Field name={fieldName} validate={validateInput}>
         {({ field, form: { touched, errors }, meta }) => {
+          console.log(field,'fieldfieldfieldfield')
           return (
             <Input
               id={id}

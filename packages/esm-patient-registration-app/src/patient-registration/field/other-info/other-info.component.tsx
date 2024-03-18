@@ -44,11 +44,12 @@ export function OtherInfo() {
           fieldDefinition={{
             id: 'mobileNoOwner',
             type: 'person attribute',
-            uuid: config.fieldConfigurations.mobileNoOwner.personAttributeUuid,
+            uuid:config.fieldConfigurations.mobileNoOwner.personAttributeUuid,// "fcb2bcac-78a0-4cef-be7c-d51fa90d62e5",
             showHeading: false,
             answerConceptSetUuid: '5be5ff99-f938-4577-a477-821bca28222b',
             validation: {
               required: true,
+              matches: null 
             },
             label: 'Mobile No Owner',
           }}
