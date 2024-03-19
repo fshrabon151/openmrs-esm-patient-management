@@ -21,6 +21,7 @@ const formValues: FormValues = {
   isDead: false,
   deathDate: 'string',
   deathCause: 'string',
+  registrationDate:new Date(),
   relationships: [],
   address: {
     address1: '',

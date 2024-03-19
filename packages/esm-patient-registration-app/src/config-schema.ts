@@ -381,14 +381,14 @@ export const esmPatientRegistrationSchema = {
       personAttributeUuid: {
         _type: Type.UUID,
         _default: '3eea0afc-84d4-473d-b1bc-c913ff960301',
-        _description: 'Finacial Status Date Field Requried',
+        _description: 'Registration Point Field Requried',
       },
     },
     mobileNoOwner: {
       personAttributeUuid: {
         _type: Type.UUID,
         _default: 'fcb2bcac-78a0-4cef-be7c-d51fa90d62e5',
-        _description: 'Finacial Status Date Field Requried',
+        _description: 'Mobile Number Date Field Requried',
       },
     },
     maritalStatus: {

@@ -108,6 +108,7 @@ export type Patient = {
     names: Array<NameValue>;
     gender: string;
     birthdate: string;
+    registrationDate?:any;
     birthdateEstimated: boolean;
     attributes: Array<AttributeValue>;
     addresses: Array<Record<string, string>>;
@@ -166,6 +167,7 @@ export interface FormValues {
   birthdate: Date | string;
   yearsEstimated: number;
   monthsEstimated: number;
+  registrationDate:any;
   birthdateEstimated: boolean;
   telephoneNumber: string;
   isDead: boolean;

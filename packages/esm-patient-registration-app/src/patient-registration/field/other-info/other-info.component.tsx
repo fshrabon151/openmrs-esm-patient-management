@@ -2,26 +2,27 @@ import React, { useContext, useCallback } from 'react';
 import { PersonAttributeField } from '../person-attributes/person-attribute-field.component';
 import { useConfig } from '@openmrs/esm-framework';
 import { type RegistrationConfig } from '../../../config-schema';
-// import { useField } from 'formik';
-// import styles from '../field.scss';
-// import { ContentSwitcher, DatePicker, DatePickerInput, Layer, Switch, TextInput } from '@carbon/react';
-// import { PatientRegistrationContext } from '../../patient-registration-context';
-// import { generateFormatting } from '../../date-util';
-// import { useTranslation } from 'react-i18next';
+import { useField } from 'formik';
+import styles from '../field.scss';
+import { ContentSwitcher, DatePicker, DatePickerInput, Layer, Switch, TextInput } from '@carbon/react';
+import { PatientRegistrationContext } from '../../patient-registration-context';
+import { generateFormatting } from '../../date-util';
+import { useTranslation } from 'react-i18next';
 
 export function OtherInfo() {
   const config = useConfig<RegistrationConfig>();
-  // const { t } = useTranslation();
-  //const { setFieldValue } = useContext(PatientRegistrationContext);
-  // const [registrationDate, registrationDateMeta] = useField('registrationDate');
-  // const { format, placeHolder, dateFormat } = generateFormatting(['d', 'm', 'Y'], '/');
-  // const onDateChange = useCallback(
-  //   (registrationDate: Date[]) => {
-  //     console.log(registrationDate);
-  //     setFieldValue('registrationDate', registrationDate[0]);
-  //   },
-  //   [setFieldValue],
-  // );
+  const { t } = useTranslation();
+  const { setFieldValue, values } = useContext(PatientRegistrationContext);
+  const [registrationDate, registrationDateMeta] = useField('registrationDate');
+  const { format, placeHolder, dateFormat } = generateFormatting(['d', 'm', 'Y'], '/');
+  const onDateChange = useCallback(
+    (registrationDate: Date[]) => {
+      console.log(registrationDate);
+      setFieldValue('registrationDate', registrationDate[0]);
+    },
+    [setFieldValue],
+  );
+  console.log(registrationDate, values, 'registrationDate');
 
   return (
     <div>
@@ -46,7 +47,11 @@ export function OtherInfo() {
             type: 'person attribute',
             uuid: config.fieldConfigurations.mobileNoOwner.personAttributeUuid, // "fcb2bcac-78a0-4cef-be7c-d51fa90d62e5",
             showHeading: false,
-            answerConceptSetUuid: '5be5ff99-f938-4577-a477-821bca28222b',
+            customConceptAnswers: [
+              { uuid: '5bf0d7ab-09c3-4825-a58e-94e256b13222', label: 'Self' },
+              { uuid: 'd595904d-943d-46fd-a008-5f50942b5b97', label: 'Parents' },
+            ],
+            // answerConceptSetUuid: '5be5ff99-f938-4577-a477-821bca28222b',
             validation: {
               required: true,
               matches: null,

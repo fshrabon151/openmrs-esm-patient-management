@@ -19,6 +19,7 @@ export const dummyFormValues: FormValues = {
   addNameInLocalLanguage: true,
   gender: 'Male',
   birthdate: new Date(2020, 1, 1) as any,
+  registrationDate: new Date(2020, 1, 1) as any,
   yearsEstimated: 1,
   monthsEstimated: 2,
   birthdateEstimated: true,

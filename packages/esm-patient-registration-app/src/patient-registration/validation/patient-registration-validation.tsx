@@ -28,6 +28,11 @@ export function getValidationSchema(config: RegistrationConfig) {
       then: Yup.date().required('birthdayRequired').max(Date(), 'birthdayNotInTheFuture').nullable(),
       otherwise: Yup.date().nullable(),
     }),
+    registrationDate: Yup.date().when('registrationDateEstimated', {
+      is: false,
+      then: Yup.date().required('registrationDateRequired').max(Date(), 'registrationDateNotInTheFuture').nullable(),
+      otherwise: Yup.date().nullable(),
+    }),
     yearsEstimated: Yup.number().when('birthdateEstimated', {
       is: true,
       then: Yup.number().required('yearsEstimateRequired').min(0, 'negativeYears'),
