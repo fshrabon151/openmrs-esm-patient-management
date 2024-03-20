@@ -17,12 +17,10 @@ export function OtherInfo() {
   const { format, placeHolder, dateFormat } = generateFormatting(['d', 'm', 'Y'], '/');
   const onDateChange = useCallback(
     (registrationDate: Date[]) => {
-      console.log(registrationDate);
       setFieldValue('registrationDate', registrationDate[0]);
     },
     [setFieldValue],
   );
-  console.log(registrationDate, values, 'registrationDate');
 
   return (
     <div>
@@ -151,7 +149,7 @@ export function OtherInfo() {
           label: 'Id Number',
         }}
       />
-      <PersonAttributeField
+      {/* <PersonAttributeField
         fieldDefinition={{
           id: 'registrationDate',
           type: 'person attribute',
@@ -163,9 +161,9 @@ export function OtherInfo() {
           disabled: true,
           label: 'Registration Date',
         }}
-      />
+      /> */}
 
-      {/* <div className={styles.dobField}>
+      <div className={styles.dobField}>
         <DatePicker
           dateFormat={dateFormat}
           datePickerType="single"
@@ -178,7 +176,7 @@ export function OtherInfo() {
             value={format(registrationDate.value)}
           />
         </DatePicker>
-      </div> */}
+      </div>
     </div>
   );
 }

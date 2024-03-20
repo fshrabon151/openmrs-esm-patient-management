@@ -24,11 +24,8 @@ export const AddressComponent: React.FC = () => {
     }
 
     const allFields = addressTemplate?.lines?.flat();
-    console.log(addressTemplate, 'addressTemplate');
     const fields = allFields?.filter(({ isToken }) => isToken === 'IS_ADDR_TOKEN');
     const allRequiredFields = Object.fromEntries(addressTemplate?.requiredElements?.map((curr) => [curr, curr]) || []);
-
-    console.log(fields, 'fieldsfields');
 
     const addressLabel = (value: string) => {
       //displayText!=="Province"?displayText:"Division/Province",
@@ -80,9 +77,6 @@ export const AddressComponent: React.FC = () => {
     }
 
     const orderMap = Object.fromEntries(orderedFields.map((field, indx) => [field, indx]));
-
-    console.log(addressLayout, 'addressLayout');
-
     return [...addressLayout].sort(
       (existingField1, existingField2) => orderMap[existingField1.name] - orderMap[existingField2.name],
     );
@@ -95,7 +89,6 @@ export const AddressComponent: React.FC = () => {
       </AddressComponentContainer>
     );
   }
-  console.log(orderedAddressFields, 'orderedAddressFields');
 
   if (!addressHierarchyEnabled || !isOnline) {
     return (

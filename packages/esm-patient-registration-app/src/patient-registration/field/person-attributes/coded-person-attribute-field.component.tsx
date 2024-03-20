@@ -93,7 +93,6 @@ export function CodedPersonAttributeField({
         <Layer>
           <Field name={fieldName}>
             {({ field, form: { touched, errors }, meta }) => {
-              console.log(field.value, 'lifeeeeeeeeeeeeee');
               return (
                 <>
                   <Select

@@ -303,7 +303,6 @@ export class FormManager {
       birthdate = values.birthdate;
     }
 
-    console.log(values,'values')
     return {
       uuid: values.patientUuid,
       person: {
@@ -311,7 +310,7 @@ export class FormManager {
         names: FormManager.getNames(values, patientUuidMap),
         gender: values.gender.charAt(0).toUpperCase(),
         birthdate,
-       // registrationDate:values.registrationDate??birthdate,
+        // registrationDate:values.registrationDate??birthdate,
         birthdateEstimated: values.birthdateEstimated,
         attributes: FormManager.getPatientAttributes(isNewPatient, values, patientUuidMap),
         addresses: [values.address],
