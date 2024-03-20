@@ -124,7 +124,7 @@ export function useInitialFormValues(patientUuid: string): [FormValues, Dispatch
       attributes.forEach((attribute) => {
         personAttributes[attribute.attributeType.uuid] =
           attribute.attributeType.format === 'org.openmrs.Concept' && typeof attribute.value === 'object'
-            ? attribute.value
+            ? attribute.value?.uuid
             : attribute.value;
       });
 
