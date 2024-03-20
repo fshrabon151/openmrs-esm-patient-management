@@ -16,7 +16,6 @@ export interface PatientRegistrationContextProps {
   setInitialFormValues?: React.Dispatch<SetStateAction<FormValues>>;
 }
 
-
 export const PatientRegistrationContext = createContext<PatientRegistrationContextProps | undefined>(undefined);
 
 export function useFieldConfig(field: string) {

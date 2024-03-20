@@ -49,7 +49,7 @@ export function useInitialFormValues(patientUuid: string): [FormValues, Dispatch
     addNameInLocalLanguage: false,
     gender: '',
     birthdate: null,
-    registrationDate:null,
+    registrationDate: null,
     yearsEstimated: 0,
     monthsEstimated: 0,
     birthdateEstimated: false,
@@ -122,9 +122,10 @@ export function useInitialFormValues(patientUuid: string): [FormValues, Dispatch
     if (!isLoadingAttributes && attributes) {
       let personAttributes = {};
       attributes.forEach((attribute) => {
+        console.log(attribute,"attributeattribute")
         personAttributes[attribute.attributeType.uuid] =
           attribute.attributeType.format === 'org.openmrs.Concept' && typeof attribute.value === 'object'
-            ? attribute.value?.uuid
+            ? attribute.value
             : attribute.value;
       });
 

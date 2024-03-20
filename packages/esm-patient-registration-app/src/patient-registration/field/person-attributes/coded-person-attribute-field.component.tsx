@@ -96,7 +96,6 @@ export function CodedPersonAttributeField({
               return (
                 <>
                   <Select
-                    defaultValue={field.value}
                     id={id}
                     name={`person-attribute-${personAttributeType.uuid}`}
                     labelText={label ?? personAttributeType?.display}

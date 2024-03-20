@@ -31,7 +31,7 @@ export const DobField: React.FC = () => {
   const [birthdate, birthdateMeta] = useField('birthdate');
   const [yearsEstimated, yearsEstimateMeta] = useField('yearsEstimated');
   const [monthsEstimated, monthsEstimateMeta] = useField('monthsEstimated');
-  const { setFieldValue ,values} = useContext(PatientRegistrationContext);
+  const { setFieldValue, values } = useContext(PatientRegistrationContext);
   const { format, placeHolder, dateFormat } = generateFormatting(['d', 'm', 'Y'], '/');
   const today = new Date();
 

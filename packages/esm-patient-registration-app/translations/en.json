@@ -67,6 +67,7 @@
   "registerPatient": "Register Patient",
   "registerPatientSuccessSnackbarSubtitle": "The patient can now be found by searching for them using their name or ID number",
   "registerPatientSuccessSnackbarTitle": "New Patient Created",
+  "registrationDate": "Registration Date",
   "registrationErrorSnackbarTitle": "Patient Registration Failed",
   "relationship": "Relationship",
   "relationshipPersonMustExist": "Related person must be an existing person",
