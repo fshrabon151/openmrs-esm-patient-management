@@ -1,12 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
-import { Field } from 'formik';
 import { Layer, Select, SelectItem } from '@carbon/react';
+import { reportError } from '@openmrs/esm-framework';
+import { Field } from 'formik';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { type PersonAttributeTypeResponse } from '../../patient-registration.types';
 import { useConceptAnswers } from '../field.resource';
-import styles from './../field.scss';
-import { reportError } from '@openmrs/esm-framework';
 
 export interface CodedPersonAttributeFieldProps {
   id: string;
@@ -88,7 +86,7 @@ export function CodedPersonAttributeField({
   }
 
   return (
-    <div className={classNames(styles.customField, styles.halfWidthInDesktopView)}>
+    <div>
       {!isLoadingConceptAnswers ? (
         <Layer>
           <Field name={fieldName}>
@@ -100,6 +98,7 @@ export function CodedPersonAttributeField({
                     name={`person-attribute-${personAttributeType.uuid}`}
                     labelText={label ?? personAttributeType?.display}
                     invalid={errors[fieldName] && touched[fieldName]}
+                    size={'sm'}
                     {...field}>
                     <SelectItem value={''} text={t('selectAnOption', 'Select an option')} />
                     {answers.map((answer) => (

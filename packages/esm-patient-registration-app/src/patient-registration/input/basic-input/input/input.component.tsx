@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Layer, TextInput } from '@carbon/react';
 import { useField } from 'formik';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // FIXME Temporarily imported here
 export interface TextInputProps
@@ -172,6 +172,7 @@ export const Input: React.FC<InputProps> = ({ checkWarning, ...props }) => {
           warn={!!warnText}
           warnText={warnText}
           value={value}
+          size={'sm'}
         />
       </Layer>
     </div>
