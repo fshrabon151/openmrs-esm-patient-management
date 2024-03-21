@@ -62,7 +62,7 @@ const AddressSearchComponent: React.FC<AddressSearchComponentProps> = ({ address
   }, [wrapper]);
 
   return (
-    <div className={styles.autocomplete} ref={wrapper} style={{ marginBottom: '1rem' }}>
+    <div className={styles.autocomplete} ref={wrapper} style={{ marginTop: '1rem' }}>
       <Search
         onChange={handleInputChange}
         labelText={t('searchAddress', 'Search address')}

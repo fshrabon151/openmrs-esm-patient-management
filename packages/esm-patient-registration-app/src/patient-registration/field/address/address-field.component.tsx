@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ResourcesContext } from '../../../offline.resources';
-import { SkeletonText, InlineNotification } from '@carbon/react';
+import { SkeletonText, InlineNotification, Grid, Column } from '@carbon/react';
 import { Input } from '../../input/basic-input/input/input.component';
 import { useConfig, useConnectivity } from '@openmrs/esm-framework';
 import { PatientRegistrationContext } from '../../patient-registration-context';
@@ -130,21 +130,32 @@ export const AddressComponent: React.FC = () => {
 
   return (
     <AddressComponentContainer>
-      {useQuickSearch && <AddressSearchComponent addressLayout={orderedAddressFields} />}
-      {searchAddressByLevel ? (
-        <AddressHierarchyLevels orderedAddressFields={orderedAddressFields} />
-      ) : (
-        orderedAddressFields.map((attributes, index) => (
-          <Input
-            key={`combo_input_${index}`}
-            name={`address.${attributes.name}`}
-            labelText={t(attributes.label)}
-            id={attributes.name}
-            value={selected}
-            required={attributes.required}
-          />
-        ))
-      )}
+      <Grid>
+        {useQuickSearch && (
+          <Column lg={5} md={4} sm={2}>
+            {' '}
+            <AddressSearchComponent addressLayout={orderedAddressFields} />
+          </Column>
+        )}
+        {searchAddressByLevel ? (
+          <Column lg={4} md={4} sm={2}>
+            <AddressHierarchyLevels orderedAddressFields={orderedAddressFields} />
+          </Column>
+        ) : (
+          orderedAddressFields.map((attributes, index) => (
+            <Column key={index} lg={5} md={4} sm={2}>
+              <Input
+                key={`combo_input_${index}`}
+                name={`address.${attributes.name}`}
+                labelText={t(attributes.label)}
+                id={attributes.name}
+                value={selected}
+                required={attributes.required}
+              />
+            </Column>
+          ))
+        )}
+      </Grid>
     </AddressComponentContainer>
   );
 };
