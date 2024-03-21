@@ -103,10 +103,9 @@ export const DobField: React.FC = () => {
         </Column>
         {/* <Layer> */}
         {!dobUnknown ? (
-          <Column lg={5} md={4} sm={2}>
+          <Column lg={5} md={5} sm={2}>
             <DatePicker dateFormat={dateFormat} datePickerType="single" onChange={onDateChange} maxDate={format(today)}>
               <DatePickerInput
-                style={{}}
                 id="birthdate"
                 {...birthdate}
                 size="sm"

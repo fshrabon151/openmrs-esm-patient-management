@@ -133,7 +133,6 @@ export const AddressComponent: React.FC = () => {
       <Grid>
         {useQuickSearch && (
           <Column lg={5} md={4} sm={2}>
-            {' '}
             <AddressSearchComponent addressLayout={orderedAddressFields} />
           </Column>
         )}
@@ -164,13 +163,8 @@ const AddressComponentContainer = ({ children }) => {
   const { t } = useTranslation();
   return (
     <div>
-      <h4 className={styles.productiveHeading02Light}>{t('addressHeader', 'Address')}</h4>
-      <div
-        style={{
-          paddingBottom: '5%',
-        }}>
-        {children}
-      </div>
+      {/* <h4 className={styles.productiveHeading02Light}>{t('addressHeader', 'Address')}</h4> */}
+      <div>{children}</div>
     </div>
   );
 };

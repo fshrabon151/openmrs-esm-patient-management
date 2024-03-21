@@ -1,7 +1,7 @@
 import { Column, DatePicker, DatePickerInput, Grid } from '@carbon/react';
 import { useConfig } from '@openmrs/esm-framework';
 import { useField } from 'formik';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { type RegistrationConfig } from '../../../config-schema';
 import { generateFormatting } from '../../date-util';
@@ -20,6 +20,10 @@ export function OtherInfo() {
     },
     [setFieldValue],
   );
+
+  useEffect(() => {
+    setFieldValue('registrationDate', new Date());
+  }, []);
 
   const otherInputFields = [
     <PersonAttributeField
@@ -134,7 +138,12 @@ export function OtherInfo() {
         label: 'Id Type',
       }}
     />,
-    <DatePicker dateFormat={dateFormat} datePickerType="single" onChange={onDateChange} maxDate={format(new Date())}>
+    <DatePicker
+      dateFormat={dateFormat}
+      datePickerType="single"
+      onChange={onDateChange}
+      maxDate={format(new Date())}
+      readOnly>
       <DatePickerInput
         {...registrationDate}
         labelText={t('registrationDate', 'Registration Date')}

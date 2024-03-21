@@ -106,7 +106,7 @@ export const NameField = () => {
       <div>
         <Grid>
           {(allowUnidentifiedPatients || isPatientUnknown) && (
-            <Column lg={10} md={4} sm={2}>
+            <Column lg={5} md={4} sm={2}>
               <div className={styles.dobContentSwitcherLabel}>
                 <span className={styles.label01}>{t('patientNameKnown', "Patient's Name is Known?")}</span>
               </div>
@@ -119,6 +119,7 @@ export const NameField = () => {
               </ContentSwitcher>
             </Column>
           )}
+          <Column lg={5} md={4} sm={2}></Column>
           <Column lg={5} md={4} sm={2}>
             {displayCapturePhoto && (
               <ExtensionSlot
