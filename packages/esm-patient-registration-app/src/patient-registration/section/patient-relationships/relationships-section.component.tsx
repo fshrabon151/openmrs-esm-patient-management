@@ -7,6 +7,8 @@ import {
   InlineNotification,
   NotificationActionButton,
   SkeletonText,
+  Grid,
+  Column,
 } from '@carbon/react';
 import { TrashCan } from '@carbon/react/icons';
 import { FieldArray } from 'formik';
@@ -87,63 +89,69 @@ const RelationshipView: React.FC<RelationshipViewProps> = ({
 
   return relationship.action !== 'DELETE' ? (
     <div className={styles.relationship}>
-      <div className={styles.searchBox}>
-        <div className={styles.relationshipHeader}>
-          <h4 className={styles.productiveHeading}>{t('relationshipPlaceholder', 'Relationship')}</h4>
-          <Button
-            kind="ghost"
-            iconDescription={t('deleteRelationshipTooltipText', 'Delete')}
-            hasIconOnly
-            onClick={deleteRelationship}>
-            <TrashCan size={16} className={styles.trashCan} />
-          </Button>
-        </div>
-        <div>
-          {newRelationship ? (
-            <Autosuggest
-              id={`relationships[${index}].relatedPersonUuid`}
-              labelText={t('relativeFullNameLabelText', 'Full name')}
-              placeholder={t('relativeNamePlaceholder', 'Firstname Familyname')}
-              defaultValue={relationship.relatedPersonName}
-              onSuggestionSelected={handleSuggestionSelected}
-              invalid={isInvalid}
-              invalidText={t('relationshipPersonMustExist', 'Related person must be an existing person')}
-              getSearchResults={searchPerson}
-              getDisplayValue={(item) => item.display}
-              getFieldValue={(item) => item.uuid}
-            />
-          ) : (
-            <>
-              <span className={styles.labelText}>{t('relativeFullNameLabelText', 'Full name')}</span>
-              <p className={styles.bodyShort02}>{relationship.relatedPersonName}</p>
-            </>
-          )}
-        </div>
-      </div>
-      <div className={styles.selectRelationshipType} style={{ marginBottom: '1rem' }}>
-        <Layer>
-          <Select
-            id="select"
-            labelText={t('relationship', 'Relationship')}
-            onChange={handleRelationshipTypeChange}
-            name={`relationships[${index}].relationshipType`}
-            defaultValue={relationship?.relationshipType ?? 'placeholder-item'}>
-            <SelectItem
-              disabled
-              hidden
-              value="placeholder-item"
-              text={t('relationshipToPatient', 'Relationship to patient')}
-            />
-            {displayRelationshipTypes.map((relationshipType, index) => (
-              <SelectItem
-                text={relationshipType.display}
-                value={`${relationshipType.uuid}/${relationshipType.direction}`}
-                key={`relationship-${relationshipType.uuid}-${index}`}
-              />
-            ))}
-          </Select>
-        </Layer>
-      </div>
+      <Grid>
+        <Column lg={7} md={4} sm={2}>
+          <div className={styles.searchBox}>
+            <div className={styles.relationshipHeader}>
+              <h4 className={styles.productiveHeading}>{t('relationshipPlaceholder', 'Relationship')}</h4>
+              <Button
+                kind="ghost"
+                iconDescription={t('deleteRelationshipTooltipText', 'Delete')}
+                hasIconOnly
+                onClick={deleteRelationship}>
+                <TrashCan size={16} className={styles.trashCan} />
+              </Button>
+            </div>
+            <div>
+              {newRelationship ? (
+                <Autosuggest
+                  id={`relationships[${index}].relatedPersonUuid`}
+                  labelText={t('relativeFullNameLabelText', 'Full name')}
+                  placeholder={t('relativeNamePlaceholder', 'Firstname Familyname')}
+                  defaultValue={relationship.relatedPersonName}
+                  onSuggestionSelected={handleSuggestionSelected}
+                  invalid={isInvalid}
+                  invalidText={t('relationshipPersonMustExist', 'Related person must be an existing person')}
+                  getSearchResults={searchPerson}
+                  getDisplayValue={(item) => item.display}
+                  getFieldValue={(item) => item.uuid}
+                />
+              ) : (
+                <>
+                  <span className={styles.labelText}>{t('relativeFullNameLabelText', 'Full name')}</span>
+                  <p className={styles.bodyShort02}>{relationship.relatedPersonName}</p>
+                </>
+              )}
+            </div>
+          </div>
+        </Column>
+        <Column lg={7} md={4} sm={2}>
+          <div className={styles.selectRelationshipType} style={{ marginTop: '3rem' }}>
+            <Layer>
+              <Select
+                id="select"
+                labelText={t('relationship', 'Relationship')}
+                onChange={handleRelationshipTypeChange}
+                name={`relationships[${index}].relationshipType`}
+                defaultValue={relationship?.relationshipType ?? 'placeholder-item'}>
+                <SelectItem
+                  disabled
+                  hidden
+                  value="placeholder-item"
+                  text={t('relationshipToPatient', 'Relationship to patient')}
+                />
+                {displayRelationshipTypes.map((relationshipType, index) => (
+                  <SelectItem
+                    text={relationshipType.display}
+                    value={`${relationshipType.uuid}/${relationshipType.direction}`}
+                    key={`relationship-${relationshipType.uuid}-${index}`}
+                  />
+                ))}
+              </Select>
+            </Layer>
+          </div>
+        </Column>
+      </Grid>
     </div>
   ) : (
     <InlineNotification
@@ -215,6 +223,7 @@ export const RelationshipsSection = () => {
                   </div>
                 ))
               : null}
+
             <div className={styles.actions}>
               <Button
                 kind="ghost"
