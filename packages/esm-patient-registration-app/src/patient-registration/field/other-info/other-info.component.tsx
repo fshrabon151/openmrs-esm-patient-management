@@ -44,11 +44,11 @@ export function OtherInfo() {
         type: 'person attribute',
         uuid: config.fieldConfigurations.mobileNoOwner.personAttributeUuid, // "fcb2bcac-78a0-4cef-be7c-d51fa90d62e5",
         showHeading: false,
-        customConceptAnswers: [
-          { uuid: '5bf0d7ab-09c3-4825-a58e-94e256b13222', label: 'Self' },
-          { uuid: 'd595904d-943d-46fd-a008-5f50942b5b97', label: 'Parents' },
-        ],
-        // answerConceptSetUuid: '5be5ff99-f938-4577-a477-821bca28222b',
+        // customConceptAnswers: [
+        //   { uuid: '5bf0d7ab-09c3-4825-a58e-94e256b13222', label: 'Self' },
+        //   { uuid: 'd595904d-943d-46fd-a008-5f50942b5b97', label: 'Parents' },
+        // ],
+        answerConceptSetUuid: '5be5ff99-f938-4577-a477-821bca28222b',
         validation: {
           required: true,
           matches: null,
