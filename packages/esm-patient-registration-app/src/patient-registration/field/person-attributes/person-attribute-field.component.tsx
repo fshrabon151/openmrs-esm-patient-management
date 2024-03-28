@@ -32,6 +32,7 @@ export function PersonAttributeField({ fieldDefinition }: PersonAttributeFieldPr
           />
         );
       case 'org.openmrs.Concept':
+      case 'org.openmrs.Encounter':
         return (
           <CodedPersonAttributeField
             personAttributeType={personAttributeType}
@@ -41,6 +42,7 @@ export function PersonAttributeField({ fieldDefinition }: PersonAttributeFieldPr
             customConceptAnswers={fieldDefinition.customConceptAnswers ?? []}
           />
         );
+
       default:
         return (
           <InlineNotification kind="error" title="Error">

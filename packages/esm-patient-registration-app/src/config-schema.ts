@@ -68,6 +68,12 @@ export interface RegistrationConfig {
     finacialStatus: {
       personAttributeUuid: string;
     };
+    preferredCallingTime: {
+      personAttributeUuid: string;
+    };
+    alternateMobileNo: {
+      personAttributeUuid: string;
+    };
     occupation: {
       personAttributeUuid: string;
     };
@@ -359,7 +365,7 @@ export const esmPatientRegistrationSchema = {
     birthRank: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: '02bb6557-9383-4915-8674-42f7ca53e9ab',
+        _default: '73b1183f-2b25-4812-87fb-42b849246bb5',
         _description: 'Birth Rank Field Requried',
       },
     },
@@ -373,42 +379,56 @@ export const esmPatientRegistrationSchema = {
     finacialStatus: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: 'd04a3bb4-8981-46e5-a421-40ce4d2f1362',
+        _default: 'c0bf5b84-26b7-459b-94f5-be41a88c83df',
         _description: 'Finacial Status Date Field Requried',
       },
     },
     registrationPoint: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: '3eea0afc-84d4-473d-b1bc-c913ff960301',
+        _default: '05660d00-4928-46c2-8083-b9e9f16a2f4e',
         _description: 'Registration Point Field Requried',
       },
     },
     mobileNoOwner: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: 'fcb2bcac-78a0-4cef-be7c-d51fa90d62e5',
+        _default: '96744ecf-314a-4f50-a1c3-3ae6749cea3b',
         _description: 'Mobile Number Date Field Requried',
+      },
+    },
+    preferredCallingTime: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: 'd1397c04-8c46-42c8-8475-446bb12ceaf0',
+        _description: 'Preferred Caling Time Date Field Requried',
       },
     },
     maritalStatus: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: '78589252-6070-4814-bb0f-242b63f87924',
+        _default: 'a1c33e15-04fc-4ccc-817a-687ac37b2228',
         _description: 'Marital Status Date Field Requried',
       },
     },
     occupation: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: 'c492499b-d2e9-499d-940d-c73cedcfa2ce',
+        _default: 'bd3024fc-bc91-4ef4-b0a3-37e7640ec89a',
         _description: 'Occupation Date Field Requried',
       },
     },
     idType: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: '2ccca6bd-ceb6-47bb-8fcc-e67e11481ee6',
+        _default: 'ee576684-03a2-4da7-8b17-b72b503a8317',
+        _description: 'ID Type Date Field Requried',
+      },
+    },
+    alternateMobileNo: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: '5bf0d882-5c0b-4a81-a439-1206e468d1bf',
         _description: 'ID Type Date Field Requried',
       },
     },
@@ -422,14 +442,14 @@ export const esmPatientRegistrationSchema = {
     birthDistrict: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: 'eae8da64-94f4-4ff0-9b1e-16f1cbf04ecc',
+        _default: '82679dd9-0e53-4ae8-80cf-69fa4a237194',
         _description: 'Birth District Field Requried',
       },
     },
     birthUpazilla: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: '7846e26e-3eee-46d2-af66-0711f06526f3',
+        _default: '69887f55-9d6e-4e45-bf33-5bec6d09af66',
         _description: 'Birth Upazilla Field Requried',
       },
     },
