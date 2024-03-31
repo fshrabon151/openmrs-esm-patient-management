@@ -142,12 +142,15 @@ export function OtherInfo() {
     <PersonAttributeField
       fieldDefinition={{
         id: 'registrationDate',
-        disabled: true,
+        readOnly: true,
         type: 'person attribute',
         uuid: config.fieldConfigurations.registrationDate.personAttributeUuid,
         showHeading: false,
         defaultValue: new Date(),
         label: 'Registration Date',
+        range:{
+          maxDate:new Date()
+        }
       }}
     />,
   ];

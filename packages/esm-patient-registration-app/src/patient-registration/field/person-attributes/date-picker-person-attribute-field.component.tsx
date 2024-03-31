@@ -9,21 +9,21 @@ import { PatientRegistrationContext } from '../../patient-registration-context';
 export interface DatePickerPersonAttributeFieldProps {
   id: string;
   personAttributeType: PersonAttributeTypeResponse;
-  validationRegex?: string;
   label?: string;
   required?: boolean;
-  disabled?: boolean;
+  readOnly?: boolean;
   defaultValue?: any;
+  range?: object;
 }
 
 export function DatePickerPersonAttributeField({
   id,
   personAttributeType,
-  validationRegex,
   label,
   required,
-  disabled,
+  readOnly,
   defaultValue,
+  range,
 }: DatePickerPersonAttributeFieldProps) {
   const { t } = useTranslation();
   const { format, placeHolder, dateFormat } = generateFormatting(['d', 'm', 'Y'], '/');
@@ -32,33 +32,45 @@ export function DatePickerPersonAttributeField({
 
   const { setFieldValue } = useContext(PatientRegistrationContext);
 
-  useEffect(() => {
-    if (defaultValue) {
-      setFieldValue(fieldName, format(defaultValue));
-    }
-  }, []);
+  function formatDateSimple(dateString) {
+    const [year, month, day] = dateString.split('-');
+    return `${parseInt(month, 10)}/${parseInt(day, 10)}/${year}`;
+  }
 
   return (
     <div>
       <Field name={fieldName}>
         {({ field, form: { touched, errors }, meta }) => {
-          const value = field.value && field.value.includes('T') ? new Date(field.value.split('T')[0]) : field.value;
+          useEffect(() => {
+            if (!field.value && defaultValue) {
+              setFieldValue(fieldName, format(defaultValue));
+            }
+          }, []);
+
+          const value =
+            field.value && field.value.includes('T') ? formatDateSimple(field.value.split('T')[0]) : field.value;
+          console.log(
+            field.value && field.value.includes('T') && formatDateSimple(field?.value?.split('T')[0]),
+            'valuevalue',
+          );
           return (
             <>
               <DatePicker
                 dateFormat={dateFormat}
                 datePickerType="single"
-                maxDate={format(today)}
-                {...field}
-                onChange={([date]) => setFieldValue(fieldName, format(date))}
+                {...{
+                  field,
+                  value: value ? value : defaultValue,
+                  onChange: ([date]) => setFieldValue(fieldName, format(date)),
+                }}
                 required={required}
-                readOnly={disabled}>
+                // {...range}
+                // readOnly={readOnly}
+              >
                 <DatePickerInput
                   labelText={label ?? personAttributeType?.display}
                   id={id}
                   invalid={errors[fieldName] && touched[fieldName]}
-                  {...field}
-                  value={value ? format(value) : defaultValue}
                   size="sm"
                 />
               </DatePicker>

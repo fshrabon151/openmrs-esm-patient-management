@@ -47,11 +47,11 @@ export function PersonAttributeField({ fieldDefinition }: PersonAttributeFieldPr
       case 'org.openmrs.util.AttributableDate':
         return (
           <DatePickerPersonAttributeField
-            disabled={fieldDefinition.disabled}
+            readOnly={fieldDefinition.readOnly}
             defaultValue={fieldDefinition.defaultValue}
             personAttributeType={personAttributeType}
-            validationRegex={fieldDefinition.validation?.matches ?? ''}
             label={fieldDefinition.label}
+            range={fieldDefinition.range}
             required={fieldDefinition.validation?.required ?? false}
             id={fieldDefinition?.id}
           />
