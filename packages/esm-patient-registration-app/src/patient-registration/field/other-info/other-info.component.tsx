@@ -139,20 +139,17 @@ export function OtherInfo() {
         label: 'Id Type',
       }}
     />,
-    <DatePicker
-      dateFormat={dateFormat}
-      datePickerType="single"
-      onChange={onDateChange}
-      maxDate={format(new Date())}
-      readOnly>
-      <DatePickerInput
-        {...registrationDate}
-        labelText={t('registrationDate', 'Registration Date')}
-        id="registrationDate"
-        value={format(registrationDate.value)}
-        size="sm"
-      />
-    </DatePicker>,
+    <PersonAttributeField
+      fieldDefinition={{
+        id: 'registrationDate',
+        disabled: true,
+        type: 'person attribute',
+        uuid: config.fieldConfigurations.registrationDate.personAttributeUuid,
+        showHeading: false,
+        defaultValue: new Date(),
+        label: 'Registration Date',
+      }}
+    />,
   ];
 
   return (

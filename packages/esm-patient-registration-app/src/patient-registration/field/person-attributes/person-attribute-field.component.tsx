@@ -4,6 +4,7 @@ import { type FieldDefinition } from '../../../config-schema';
 import { CodedPersonAttributeField } from './coded-person-attribute-field.component';
 import { usePersonAttributeType } from './person-attributes.resource';
 import { TextPersonAttributeField } from './text-person-attribute-field.component';
+import { DatePickerPersonAttributeField } from './date-picker-person-attribute-field.component';
 import { useTranslation } from 'react-i18next';
 import styles from '../field.scss';
 
@@ -40,6 +41,19 @@ export function PersonAttributeField({ fieldDefinition }: PersonAttributeFieldPr
             label={fieldDefinition.label}
             id={fieldDefinition?.id}
             customConceptAnswers={fieldDefinition.customConceptAnswers ?? []}
+          />
+        );
+
+      case 'org.openmrs.util.AttributableDate':
+        return (
+          <DatePickerPersonAttributeField
+            disabled={fieldDefinition.disabled}
+            defaultValue={fieldDefinition.defaultValue}
+            personAttributeType={personAttributeType}
+            validationRegex={fieldDefinition.validation?.matches ?? ''}
+            label={fieldDefinition.label}
+            required={fieldDefinition.validation?.required ?? false}
+            id={fieldDefinition?.id}
           />
         );
 

@@ -12,6 +12,7 @@ export interface FieldDefinition {
   label?: string;
   uuid: string;
   disabled?: boolean;
+  defaultValue?: any;
   placeholder?: string;
   showHeading: boolean;
   validation?: {
@@ -372,7 +373,7 @@ export const esmPatientRegistrationSchema = {
     registrationDate: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: '599ecc95-8c28-4dcd-84aa-7589e69c4f42',
+        _default: '22b468e4-d3f5-4e3e-9697-7b20111da3e2',
         _description: 'Registration Date Field Requried',
       },
     },
