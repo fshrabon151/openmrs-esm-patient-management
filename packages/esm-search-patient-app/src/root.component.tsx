@@ -7,12 +7,11 @@
  * Check out the Config docs:
  *   https://openmrs.github.io/openmrs-esm-core/#/main/config
  */
+import SearchPatientHeader from './header/search-patient-header.component';
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// import { Boxes } from "./boxes/slot/boxes.component";
-// import Greeter from "./greeter/greeter.component";
-// import PatientGetter from "./patient-getter/patient-getter.component";
+import PatientListDataTable from './patient-table/patient-table.component'
 import Resources from './resources/resources.component';
 import styles from './root.scss';
 
@@ -20,9 +19,13 @@ const Root: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container}>
-      <p>Search Patient</p>
-    </div>
+    <>
+      <SearchPatientHeader
+        title={t('home', 'Home')}
+      />
+      <br/>
+      <PatientListDataTable/>
+    </>
   );
 };
 
