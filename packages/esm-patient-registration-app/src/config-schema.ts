@@ -11,8 +11,8 @@ export interface FieldDefinition {
   type: string;
   label?: string;
   uuid: string;
-  range?:object;
-  disabled?:boolean;
+  range?: object;
+  disabled?: boolean;
   readOnly?: boolean;
   defaultValue?: any;
   placeholder?: string;

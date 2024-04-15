@@ -148,9 +148,9 @@ export function OtherInfo() {
         showHeading: false,
         defaultValue: new Date(),
         label: 'Registration Date',
-        range:{
-          maxDate:new Date()
-        }
+        range: {
+          maxDate: new Date(),
+        },
       }}
     />,
   ];

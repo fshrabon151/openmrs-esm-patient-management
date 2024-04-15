@@ -65,8 +65,7 @@ export function DatePickerPersonAttributeField({
                 }}
                 required={required}
                 // {...range}
-                // readOnly={readOnly}
-              >
+                readOnly={readOnly}>
                 <DatePickerInput
                   labelText={label ?? personAttributeType?.display}
                   id={id}
