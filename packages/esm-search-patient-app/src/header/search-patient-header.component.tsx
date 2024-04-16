@@ -8,7 +8,6 @@ import { useSession } from '@openmrs/esm-framework';
 import SearchPatientIllustration from './search-patient-illustration.component';
 import styles from './search-patient-header.scss';
 
-
 interface AppointmentHeaderProps {
   title: string;
   appointmentServiceType?: string;

@@ -6,7 +6,9 @@
   "frontendDocs": "Frontend docs",
   "getStarted": "Get started",
   "getStartedExplainer": "Create a frontend module from this template",
+  "home": "Home",
   "learnExplainer": "Learn how to use the O3 framework",
+  "patientList": "Patient List",
   "resources": "Resources",
   "searchPatient": "Search Patient",
   "usefulLinks": "Below are some links to useful resources"

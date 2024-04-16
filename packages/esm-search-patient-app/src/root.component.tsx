@@ -11,7 +11,7 @@ import SearchPatientHeader from './header/search-patient-header.component';
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import PatientListDataTable from './patient-table/patient-table.component'
+import PatientListDataTable from './patient-table/patient-table.component';
 import Resources from './resources/resources.component';
 import styles from './root.scss';
 
@@ -20,11 +20,9 @@ const Root: React.FC = () => {
 
   return (
     <>
-      <SearchPatientHeader
-        title={t('home', 'Home')}
-      />
-      <br/>
-      <PatientListDataTable/>
+      <SearchPatientHeader title={t('home', 'Home')} />
+      <br />
+      <PatientListDataTable />
     </>
   );
 };
