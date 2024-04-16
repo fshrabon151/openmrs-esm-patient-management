@@ -42,19 +42,21 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
     if (value.length < 3) return;
 
     const controller = new AbortController();
-    await findPatients(value, controller)
-      .then((response) => {
-        console.log('Patients data:', response.data.results);
-        if (response.data.results.length > 0) {
-          setPatient(response.data.results);
-        } else {
+     setTimeout(() => {
+      findPatients(value, controller)
+        .then((response) => {
+          console.log('Patients data:', response.data.results);
+          if (response.data.results.length > 0) {
+            setPatient(response.data.results);
+          } else {
+            setPatient([]);
+          }
+        })
+        .catch((error) => {
           setPatient([]);
-        }
-      })
-      .catch((error) => {
-        setPatient([]);
-        console.error('Failed to fetch patients:', error);
-      });
+          console.error('Failed to fetch patients:', error);
+        });
+    }, 1000);
   };
 
   useEffect(() => {
@@ -75,7 +77,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
       <div className={styles.backgroundDataFetchingIndicator}>
         <span>{false ? <InlineLoading /> : null}</span>
       </div>
-      <br/>
+      <br />
       <div className={styles.activeVisitsContainer}>
         <Search onChange={(e) => searchPatient(e.target.value)} />
         <TableContainer data-testid="encountersTable">
@@ -91,7 +93,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
             </TableHead>
             {patients.map((el, i) => {
               return (
-                <TableBody style={{height:"40px"}}>
+                <TableBody style={{ height: '40px' }}>
                   <TableCell>{i + 1}</TableCell>
                   <TableCell>
                     {' '}
