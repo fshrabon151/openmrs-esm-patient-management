@@ -32,9 +32,7 @@ import {
 } from '@openmrs/esm-framework';
 import styles from './patient-table.scss';
 
-
-interface PrintProps {
-}
+interface PrintProps {}
 
 const PrintPage: React.FC<PrintProps> = ({}) => {
   const { t } = useTranslation();
@@ -45,15 +43,15 @@ const PrintPage: React.FC<PrintProps> = ({}) => {
     console.log(patients, 'patients');
   }, [patients]);
 
-  const printHandler=()=>{
-    window.print()
-  }
+  const printHandler = () => {
+    window.print();
+  };
 
   const patientChartUrl = '${openmrsSpaBase}/patient/${patientUuid}/edit';
 
   return (
     <div style={{ margin: '0 20px' }}>
-        <h1>Hello ..............</h1>
+      <h1>Hello ..............</h1>
     </div>
   );
 };

@@ -20,6 +20,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  IconButton,
 } from '@carbon/react';
 import {
   useLayoutType,
@@ -36,10 +37,11 @@ import { findPatients } from './search.resource';
 interface PatientListProps {}
 
 const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
+  const skeletonObjPrint = { name: '', phone: '', nid: '', sex: '' };
   const { t } = useTranslation();
   const layout = useLayoutType();
   const [patients, setPatient] = useState([]);
-  const [printPage, setPrintPage] = useState({ name: '', phone: '', nid: '', sex: '' });
+  const [printPage, setPrintPage] = useState(skeletonObjPrint);
 
   const searchPatient = async (value: string) => {
     if (value.length < 3) return;
@@ -68,7 +70,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
 
   useEffect(() => {
     printPage.name && window.print();
-    setPrintPage({ name: '', phone: '', nid: '', sex: '' });
+    setPrintPage(skeletonObjPrint);
   }, [printPage]);
 
   const printHandler = async (value: any) => {
@@ -103,7 +105,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
                     <TableCell>Phone</TableCell>
                     <TableCell>NID</TableCell>
                     <TableCell>Gender</TableCell>
-                    <TableCell>Print</TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 {patients.map((el, i) => {
@@ -120,16 +122,19 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
                       <TableCell>{valueFromAttribute(el.attributes, 'NID')}</TableCell>
                       <TableCell>{el.person.gender}</TableCell>
                       <TableCell>
-                        <Printer
+                        <IconButton
+                          label="Print"
                           onClick={() =>
                             printHandler({
                               name: el.person.display,
                               sex: el.person.gender,
                               nid: valueFromAttribute(el.attributes, 'NID'),
-                              phone:valueFromAttribute(el.attributes, 'Telephone Number')
+                              phone: valueFromAttribute(el.attributes, 'Telephone Number'),
                             })
-                          }
-                        />
+                          }>
+                          {' '}
+                          <Printer />
+                        </IconButton>
                       </TableCell>
                     </TableBody>
                   );
@@ -141,8 +146,8 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
       )}
       {printPage.name && (
         <div className={styles.printable}>
-          <h3 style={{textDecoration:"underline"}}>Patient Information</h3>
-         <br/>
+          <h3 style={{ textDecoration: 'underline' }}>Patient Information</h3>
+          <br />
           <table>
             <tr>
               <td>Name: </td>

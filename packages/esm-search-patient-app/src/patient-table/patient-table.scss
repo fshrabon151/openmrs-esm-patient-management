@@ -20,11 +20,10 @@
   }
 
   /* Only display elements with the 'printable' class */
-  .printable *{
+  .printable * {
     visibility: visible;
     left: 0;
     top: 0;
-
   }
 }
 
