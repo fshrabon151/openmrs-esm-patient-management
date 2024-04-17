@@ -46,13 +46,8 @@ export function DatePickerPersonAttributeField({
               setFieldValue(fieldName, format(defaultValue));
             }
           }, []);
-
           const value =
             field.value && field.value.includes('T') ? formatDateSimple(field.value.split('T')[0]) : field.value;
-          console.log(
-            field.value && field.value.includes('T') && formatDateSimple(field?.value?.split('T')[0]),
-            'valuevalue',
-          );
           return (
             <>
               <DatePicker

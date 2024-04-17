@@ -110,6 +110,9 @@ export interface RegistrationConfig {
     phone: {
       personAttributeUuid: string;
     };
+    nid: {
+      personAttributeUuid: string;
+    };
   };
   links: {
     submitButton: string;
@@ -460,6 +463,13 @@ export const esmPatientRegistrationSchema = {
       personAttributeUuid: {
         _type: Type.UUID,
         _default: '14d4f066-15f5-102d-96e4-000c29c2a5d7',
+        _description: 'The UUID of the phone number person attribute type',
+      },
+    },
+    nid: {
+      personAttributeUuid: {
+        _type: Type.UUID,
+        _default: 'c2f1b1f1-99a8-4091-9b40-502cb4ad8f0e',
         _description: 'The UUID of the phone number person attribute type',
       },
     },

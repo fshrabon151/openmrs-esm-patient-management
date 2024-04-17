@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { Printer } from '@carbon/icons-react';
+
 import {
   Layer,
   Tile,
@@ -42,7 +44,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
     if (value.length < 3) return;
 
     const controller = new AbortController();
-     setTimeout(() => {
+    setTimeout(() => {
       findPatients(value, controller)
         .then((response) => {
           console.log('Patients data:', response.data.results);
@@ -79,7 +81,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
       </div>
       <br />
       <div className={styles.activeVisitsContainer}>
-        <Search onChange={(e) => searchPatient(e.target.value)} />
+        <Search onChange={(e) => searchPatient(e.target.value)} placeholder="Search by Name/NID/Phone" />
         <TableContainer data-testid="encountersTable">
           <Table>
             <TableHead>
@@ -89,6 +91,7 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
                 <TableCell>Phone</TableCell>
                 <TableCell>NID</TableCell>
                 <TableCell>Gender</TableCell>
+                <TableCell>Print</TableCell>
               </TableRow>
             </TableHead>
             {patients.map((el, i) => {
@@ -104,6 +107,9 @@ const PatientListDataTable: React.FC<PatientListProps> = ({}) => {
                   <TableCell>{valueFromAttribute(el.attributes, 'Telephone Number')}</TableCell>
                   <TableCell>{valueFromAttribute(el.attributes, 'NID')}</TableCell>
                   <TableCell>{el.person.gender}</TableCell>
+                  <TableCell>
+                    <Printer />
+                  </TableCell>
                 </TableBody>
               );
             })}

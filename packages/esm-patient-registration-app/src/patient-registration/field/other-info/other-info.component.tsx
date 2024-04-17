@@ -28,6 +28,18 @@ export function OtherInfo() {
   const otherInputFields = [
     <PersonAttributeField
       fieldDefinition={{
+        id: 'nid',
+        type: 'person attribute',
+        uuid: config.fieldConfigurations.nid.personAttributeUuid,
+        showHeading: false,
+        validation: {
+          required: true,
+        },
+        label: 'NID',
+      }}
+    />,
+    <PersonAttributeField
+      fieldDefinition={{
         id: 'mobileNo',
         type: 'person attribute',
         uuid: config.fieldConfigurations.phone.personAttributeUuid,
