@@ -13,6 +13,21 @@
   padding-bottom: 0;
 }
 
+/* Hide all elements by default when printing */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  /* Only display elements with the 'printable' class */
+  .printable *{
+    visibility: visible;
+    left: 0;
+    top: 0;
+
+  }
+}
+
 html[dir='rtl'] {
   .activeVisitsContainer {
     .activeVisitsDetailHeaderContainer {
