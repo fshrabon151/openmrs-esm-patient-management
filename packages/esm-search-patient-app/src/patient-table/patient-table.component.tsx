@@ -32,7 +32,7 @@ const PatientListDataTable: React.FC = () => {
   const { t } = useTranslation();
   const isDesktopView = useLayoutType();
   const [patients, setPatients] = useState<Patient[]>([]);
-  const [printPage, setPrintPage] = useState<Patient | null>(null);
+  const [printPage, setPrintPage] = useState<Patient>(null);
 
   const searchPatient = async (query: string) => {
     if (query.length < 3) return;
@@ -64,7 +64,7 @@ const PatientListDataTable: React.FC = () => {
     const attribute = attributes.find((attr) => attr.attributeType.display === key);
     return attribute?.value || 'N/A';
   };
-  const patientChartUrl = '${openmrsSpaBase}/patient/${patientUuid}/edit';
+  const patientChartUrl = '${openmrsSpaBase}/patient/${patientUuid}/chart/Patient%20Summary';
   return (
     <>
       {!printPage && (
@@ -91,9 +91,9 @@ const PatientListDataTable: React.FC = () => {
                   <TableRow key={patient.uuid}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>
-                    <ConfigurableLink to={patientChartUrl} templateParams={{ patientUuid: patient.uuid }}>
-                          {patient.person.display}
-                        </ConfigurableLink>
+                      <ConfigurableLink to={patientChartUrl} templateParams={{ patientUuid: patient.uuid }}>
+                        {patient.person.display}
+                      </ConfigurableLink>
                     </TableCell>
                     <TableCell>{valueFromAttribute(patient.attributes, 'Telephone Number')}</TableCell>
                     <TableCell>{valueFromAttribute(patient.attributes, 'NID')}</TableCell>

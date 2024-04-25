@@ -15,8 +15,8 @@
     "prettier": "prettier --config prettier.config.js --write \"packages/**/*.{ts,tsx,css,scss}\" \"e2e/**/*.ts\" --list-different",
     "test-e2e": "playwright test",
     "postinstall": "husky install",
-    "app": "yarn start --sources packages/esm-patient-registration-app/ packages/esm-search-patient-app/ packages/esm-patient-list-management-app/ packages/esm-appointments-app/ packages/esm-active-visits-app packages/esm-login-app --backend https://openmrs-o3-dev.mpower-social.com",
-    "app2": "yarn start --sources packages/esm-search-patient/ --backend https://openmrs-o3-dev.mpower-social.com",
+    "app": "yarn start --sources packages/esm-patient-registration-app/ packages/esm-search-patient-app/ packages/esm-patient-list-management-app/ packages/esm-appointments-app/ packages/esm-active-visits-app packages/esm-login-app packages/esm-primary-navigation-app --backend https://openmrs-o3-dev.mpower-social.com",
+    "app2": "yarn start --sources packages/esm-patient-registration-app packages/esm-login-app --backend https://openmrs-o3-dev.mpower-social.com",
     "extract-translations": "turbo extract-translations -- --config ../../tools/i18next-parser.config.js"
   },
   "dependencies": {

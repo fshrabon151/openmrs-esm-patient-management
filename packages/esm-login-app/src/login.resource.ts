@@ -63,7 +63,8 @@ export function useLoginLocations(
       urlSearchParameters.append('name:contains', debouncedSearchQuery);
     }
 
-    return url + urlSearchParameters.toString();
+    return;
+    //return url + urlSearchParameters.toString();
   }
 
   const { data, isLoading, isValidating, setSize, error } = useSwrInfinite<FetchResponse<LocationResponse>, Error>(

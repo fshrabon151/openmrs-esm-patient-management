@@ -51,6 +51,40 @@ const LocationPicker: React.FC<LocationPickerProps> = ({ hideWelcomeMessage, cur
     [user],
   );
 
+  const dummyLocation = [
+    {
+     // fullUrl: 'https://openmrs-o3.mpower-social.com/openmrs/ws/fhir2/R4/Location/44c3efb0-2583-4c80-a79e-1f756a03c0a1',
+      resource: {
+        resourceType: 'Location',
+        id: '44c3efb0-2583-4c80-a79e-1f756a03c0a1',
+        status: 'active',
+        name: 'Outpatient Clinic',
+        description: 'Outpatient Clinic',
+      },
+    },
+    {
+     // fullUrl: 'https://openmrs-o3.mpower-social.com/openmrs/ws/fhir2/R4/Location/ba685651-ed3b-4e63-9b35-78893060758a',
+      resource: {
+        resourceType: 'Location',
+        id: 'ba685651-ed3b-4e63-9b35-78893060758a',
+        status: 'active',
+        name: 'Inpatient Ward',
+        description: 'Inpatient Ward',
+      },
+    },
+    {
+     // fullUrl: 'https://openmrs-o3.mpower-social.com/openmrs/ws/fhir2/R4/Location/8d9045ad-50f0-45b8-93c8-3ed4bce19dbf',
+      resource: {
+        resourceType: 'Location',
+        id: '8d9045ad-50f0-45b8-93c8-3ed4bce19dbf',
+        status: 'active',
+        name: 'Mobile Clinic',
+        description: 'Mobile Clinic',
+      },
+    },
+  ];
+
+
   const {
     locations: fetchedLocations,
     isLoading,
@@ -59,15 +93,16 @@ const LocationPicker: React.FC<LocationPickerProps> = ({ hideWelcomeMessage, cur
     setPage,
   } = useLoginLocations(chooseLocation.useLoginLocationTag, chooseLocation.locationsPerRequest, searchTerm);
 
+
   const locations = useMemo(() => {
-    if (!defaultLocationFhir?.length || !fetchedLocations) {
-      return fetchedLocations;
+    if (!defaultLocationFhir?.length || !dummyLocation) {
+      return dummyLocation;
     }
     return [
       ...(defaultLocationFhir ?? []),
-      ...fetchedLocations?.filter(({ resource }) => resource.id !== defaultLocationFhir?.[0].resource.id),
+      ...dummyLocation?.filter(({ resource }) => resource.id !== defaultLocationFhir?.[0].resource.id),
     ];
-  }, [defaultLocationFhir, fetchedLocations]);
+  }, [defaultLocationFhir, dummyLocation]);
 
   const [activeLocation, setActiveLocation] = useState(() => {
     if (currentLocationUuid && hideWelcomeMessage) {
