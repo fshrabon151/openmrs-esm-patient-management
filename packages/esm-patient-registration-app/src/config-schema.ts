@@ -469,7 +469,7 @@ export const esmPatientRegistrationSchema = {
     nid: {
       personAttributeUuid: {
         _type: Type.UUID,
-        _default: 'c2f1b1f1-99a8-4091-9b40-502cb4ad8f0e',
+        _default: 'ec71b5e3-d5e0-4ae9-bc3f-528a95cf1acf',
         _description: 'The UUID of the phone number person attribute type',
       },
     },
